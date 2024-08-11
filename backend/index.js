@@ -6,16 +6,15 @@ import { authRouter } from "./routes/auth.route.js";
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.get("/", (req, res) => {
-  res.send("Hello world lol");
-});
+app.use(express.json()); // * allows us to parse incoming request:req.body
 
 app.use("/api/auth/", authRouter);
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   connectDB();
-  console.log("Server is Running on Port 3000");
+  console.log("Server is Running on Port: 🚀 🚀 🚀", PORT);
 });
 
 // mongodb://127.0.0.1:27017/learning_managemant
