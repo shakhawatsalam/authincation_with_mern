@@ -43,34 +43,4 @@ export const sendWelcomeEmail = async (email, name) => {
   }
 };
 
-// const { MailtrapClient } = require("mailtrap");
-
-// const TOKEN = "********d928";
-// const ENDPOINT = "https://send.api.mailtrap.io/";
-
-// const client = new MailtrapClient({ endpoint: ENDPOINT, token: TOKEN });
-
-// const sender = {
-//   email: "mailtrap@demomailtrap.com",
-//   name: "Mailtrap Test",
-// };
-// const recipients = [
-//   {
-//     email: "freelancershawon16@gmail.com",
-//   },
-// ];
-
-// client
-//   .send({
-//     from: sender,
-//     to: recipients,
-//     template_uuid: "e2d30bf7-b9c7-4209-93e6-eb06d5e5abfc",
-//     template_variables: {
-//       company_info_name: "Test_Company_info_name",
-//       company_info_address: "Test_Company_info_address",
-//       company_info_city: "Test_Company_info_city",
-//       company_info_zip_code: "Test_Company_info_zip_code",
-//       company_info_country: "Test_Company_info_country",
-//     },
-//   })
-//   .then(console.log, console.error);
+export const sendPasswordResetEmail = async () => {};
