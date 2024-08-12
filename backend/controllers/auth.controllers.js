@@ -3,7 +3,11 @@ import crypto from "crypto";
 
 import { User } from "../models/user.model.js";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
-import { sendVerificationEmail, sendWelcomeEmail } from "../mailtrap/emails.js";
+import {
+  sendPasswordResetEmail,
+  sendVerificationEmail,
+  sendWelcomeEmail,
+} from "../mailtrap/emails.js";
 
 // * Sing up
 export const signup = async (req, res) => {
@@ -148,7 +152,22 @@ export const forgotPassword = async (req, res) => {
     // * Send reset password email
     await sendPasswordResetEmail(
       user.email,
-      `${process.env.CLIENT_URL}/reset-password/${resetToken}`
+      `${process.env.CLIENT_URL}reset-password/${resetToken}`
     );
-  } catch (error) {}
+    res.status(200).json({
+      success: true,
+      message: "Password reset link sent to your email",
+    });
+  } catch (error) {
+    console.error("Error in forgotPassword", error);
+
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
 };
+
+// * Reset Password
+
+export const resetPassword = async (req, res) => {};
