@@ -103,6 +103,7 @@ function App() {
             </RedirectAuthenticatedUser>
           }
         />
+        <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
       <Toaster />
     </div>

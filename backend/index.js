@@ -15,9 +15,11 @@ app.use(express.json()); // * allows us to parse incoming request:req.body
 app.use(cookieParser()); // * allows us to parse incoming cookies
 
 app.use("/api/auth/", authRouter);
-
+console.log(process.env.NODE_ENV, "lol");
 if (process.env.NODE_ENV === "production") {
+  console.log("helloworl : 🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗");
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
   });
